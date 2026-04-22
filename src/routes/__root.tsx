@@ -44,6 +44,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Voltz do Brasil — Soluções em Energia Solar" },
+      { name: "description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
+      { property: "og:description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
+      { name: "twitter:description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f1ccb28e-5cb6-4033-b3bb-27c2edd1b27c/id-preview-076068c0--97281417-e05a-40b3-b187-bd751fb61342.lovable.app-1776884909725.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f1ccb28e-5cb6-4033-b3bb-27c2edd1b27c/id-preview-076068c0--97281417-e05a-40b3-b187-bd751fb61342.lovable.app-1776884909725.png" },
     ],
     links: [
       {
