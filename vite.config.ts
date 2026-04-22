@@ -5,14 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  base: "./", // 👈 ESSENCIAL pro GitHub Pages
   plugins: [
     TanStackRouterVite(),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),
   ],
-  server: {
-    port: 3000,
-    open: true,
-  },
 });
