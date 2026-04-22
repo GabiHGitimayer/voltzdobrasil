@@ -29,14 +29,21 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Voltz do Brasil — Soluções em Energia Solar" },
+      {
+        name: "description",
+        content:
+          "Voltz do Brasil: instalação de energia solar fotovoltaica residencial, comercial e rural. Economize até 95% na conta de luz com soluções sob medida.",
+      },
+      { name: "author", content: "Voltz do Brasil" },
+      { property: "og:title", content: "Voltz do Brasil — Soluções em Energia Solar" },
+      {
+        property: "og:description",
+        content:
+          "Energia solar com qualidade, economia e sustentabilidade. Receba uma proposta personalizada.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
