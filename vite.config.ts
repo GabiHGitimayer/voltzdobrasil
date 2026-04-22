@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "./", // 👈 ESSENCIAL pro GitHub Pages
+  base: "./",
   plugins: [
     TanStackRouterVite(),
     viteReact(),
