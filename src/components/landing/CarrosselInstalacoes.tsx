@@ -70,10 +70,6 @@ export function CarrosselInstalacoes() {
             <CarouselNext className="border-secondary bg-secondary text-secondary-foreground hover:bg-secondary/90" />
           </Carousel>
         </div>
-
-        <p className="mt-8 text-center text-xs text-primary-foreground/60">
-          💡 Dica: edite o arquivo <code className="rounded bg-primary-foreground/10 px-1.5 py-0.5">src/data/instalacoes.ts</code> para trocar as imagens.
-        </p>
       </div>
     </section>
   );

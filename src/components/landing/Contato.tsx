@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,34 +10,30 @@ import { CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 export function Contato() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const data = new FormData(e.currentTarget);
-    const lead = {
-      nome: data.get("nome"),
-      email: data.get("email"),
-      telefone: data.get("telefone"),
-      cidade: data.get("cidade"),
-      conta: data.get("conta"),
-      mensagem: data.get("mensagem"),
-      criadoEm: new Date().toISOString(),
-    };
-    // Salva localmente — para enviar a um banco de dados real, ative o Lovable Cloud.
+    
     try {
-      const list = JSON.parse(localStorage.getItem("voltz_leads") || "[]");
-      list.push(lead);
-      localStorage.setItem("voltz_leads", JSON.stringify(list));
-    } catch {
-      // ignore
-    }
-    setTimeout(() => {
-      setLoading(false);
+      if (formRef.current) {
+        await emailjs.sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID",
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID",
+          formRef.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY"
+        );
+      }
       setSent(true);
       toast.success("Recebemos seus dados! Entraremos em contato em breve.");
-      (e.target as HTMLFormElement).reset();
-    }, 700);
+      if (formRef.current) formRef.current.reset();
+    } catch (error) {
+      console.error("Erro ao enviar email:", error);
+      toast.error("Ocorreu um erro ao enviar seus dados. Tente novamente mais tarde.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,7 +57,7 @@ export function Contato() {
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-5 w-5 text-secondary" />
                 <div>
-                  <p className="font-semibold text-foreground">(11) 99999-9999</p>
+                  <p className="font-semibold text-foreground">(45) 99999-9999</p>
                   <p className="text-sm text-muted-foreground">Atendimento de seg a sáb</p>
                 </div>
               </li>
@@ -75,7 +72,7 @@ export function Contato() {
                 <MapPin className="mt-0.5 h-5 w-5 text-secondary" />
                 <div>
                   <p className="font-semibold text-foreground">Atendimento em todo o Brasil</p>
-                  <p className="text-sm text-muted-foreground">Sede em São Paulo, SP</p>
+                  <p className="text-sm text-muted-foreground">Sede em Foz do Iguaçu, PR</p>
                 </div>
               </li>
             </ul>
@@ -100,7 +97,7 @@ export function Contato() {
                 </Button>
               </div>
             ) : (
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={onSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="nome">Nome completo *</Label>
@@ -113,7 +110,7 @@ export function Contato() {
                       name="telefone"
                       required
                       type="tel"
-                      placeholder="(11) 99999-9999"
+                      placeholder="(45) 99999-9999"
                     />
                   </div>
                 </div>
@@ -130,11 +127,11 @@ export function Contato() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="cidade">Cidade / UF</Label>
-                    <Input id="cidade" name="cidade" placeholder="São Paulo, SP" />
+                    <Input id="cidade" name="cidade" placeholder="Cidade/UF" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="conta">Valor médio da conta</Label>
-                    <Input id="conta" name="conta" placeholder="R$ 500" />
+                    <Input id="conta" name="conta" placeholder="R$ 300,00" />
                   </div>
                 </div>
                 <div className="space-y-2">

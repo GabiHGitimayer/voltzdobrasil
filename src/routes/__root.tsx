@@ -1,4 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -48,8 +48,8 @@ export const Route = createRootRoute({
       { name: "description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
       { property: "og:description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
       { name: "twitter:description", content: "A solar energy company landing page showcasing installations, partners, and lead capture." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f1ccb28e-5cb6-4033-b3bb-27c2edd1b27c/id-preview-076068c0--97281417-e05a-40b3-b187-bd751fb61342.lovable.app-1776884909725.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f1ccb28e-5cb6-4033-b3bb-27c2edd1b27c/id-preview-076068c0--97281417-e05a-40b3-b187-bd751fb61342.lovable.app-1776884909725.png" },
+      { property: "og:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
     links: [
       {
@@ -58,24 +58,10 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
 
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return <Outlet />;

@@ -16,25 +16,25 @@ export type Instalacao = {
 export const instalacoes: Instalacao[] = [
   {
     image: instalacao1,
-    local: "São Paulo, SP",
+    local: "Foz do Iguaçu, PR",
     tipo: "Residencial",
     potencia: "8,4 kWp",
   },
   {
     image: instalacao2,
-    local: "Campinas, SP",
+    local: "Foz do Iguaçu, PR",
     tipo: "Comercial",
     potencia: "120 kWp",
   },
   {
     image: instalacao3,
-    local: "Ribeirão Preto, SP",
+    local: "Cascavel, PR",
     tipo: "Rural",
     potencia: "45 kWp",
   },
   {
     image: instalacao4,
-    local: "Belo Horizonte, MG",
+    local: "Medianeira, PR",
     tipo: "Residencial",
     potencia: "6,2 kWp",
   },

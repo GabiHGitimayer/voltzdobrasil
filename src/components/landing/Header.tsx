@@ -13,9 +13,6 @@ export function Header() {
             height={40}
             className="h-10 w-10 object-contain"
           />
-          <span className="hidden text-sm font-bold tracking-tight text-primary sm:inline">
-            VOLTZ <span className="text-secondary">do Brasil</span>
-          </span>
         </a>
         <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
           <a href="#sobre" className="transition-colors hover:text-primary">
