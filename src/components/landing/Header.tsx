@@ -9,9 +9,8 @@ export function Header() {
           <img
             src={logo}
             alt="Voltz do Brasil — Soluções em energia"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
+            width={180}
+            height={60}
           />
         </a>
         <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
